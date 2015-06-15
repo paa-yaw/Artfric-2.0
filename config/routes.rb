@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :artworks
+
+  root 'artworks#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +57,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match ':controller(/:action(/:id)', via => :get
 end

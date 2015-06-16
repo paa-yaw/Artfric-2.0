@@ -1,0 +1,11 @@
+<h1>Artworks on Display!</h1>
+
+<% @artworks.each do |artwork| %>
+
+<h2>
+  <%= link_to artwork.title, artwork %>
+</h2>
+<% end %>
+
+
+<%= link_to 'Add New Artwork', new_artwork_path %>

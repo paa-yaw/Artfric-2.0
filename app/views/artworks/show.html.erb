@@ -1,6 +1,7 @@
 <h1><%= @artwork.title %></h1>
 <p><%= @artwork.link %></p>
 <p><%= @artwork.content %></p>
+<p><%= @artwork.artist.name %></p>
 
 <%= link_to 'Edit', edit_artwork_path(@artwork) %>
 <%= link_to 'Delete',artwork_path(@artwork), method: :delete,

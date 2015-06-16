@@ -1,5 +1,6 @@
 class ArtworksController < ApplicationController
   before_action :find_artwork, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_artist!, except: [:index, :show]
   def index
     @artworks= Artwork.all.order("created_at DESC")
   end
@@ -8,11 +9,11 @@ class ArtworksController < ApplicationController
   end
 
   def new
-    @artwork= Artwork.new
+    @artwork= current_artist.artworks.build
   end
 
   def create
-    @artwork= Artwork.new(artwork_params)
+    @artwork= current_artist.artworks.build(artwork_params)
 
     if @artwork.save
       redirect_to @artwork

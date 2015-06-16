@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :artists
   resources :artworks
 
   root 'artworks#index'

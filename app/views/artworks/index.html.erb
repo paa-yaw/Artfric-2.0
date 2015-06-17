@@ -8,6 +8,10 @@
 </h2>
 <h3><%= link_to pluralize(artwork.comments.count, "Comment"), artwork_path(artwork) %></h3>
 
+    <p><%= artwork.get_upvotes.size %>
+      Likes
+    </p>
+
 <% end %>
 
 

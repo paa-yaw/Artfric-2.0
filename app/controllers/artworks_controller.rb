@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-  before_action :find_artwork, only: [:show, :edit, :update, :destroy]
+  before_action :find_artwork, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_artist!, except: [:index, :show]
 
   def index
@@ -38,6 +38,16 @@ class ArtworksController < ApplicationController
   def destroy
     @artwork.destroy
     redirect_to  root_path
+  end
+
+  def upvote
+    @artwork.upvote_by current_artist
+    redirect_to :back
+  end
+
+  def downvote
+    @artwork.downvote_by current_artist
+    redirect_to :back
   end
 
   private

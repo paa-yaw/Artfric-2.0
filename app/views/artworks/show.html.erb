@@ -3,6 +3,17 @@
 <p><%= @artwork.link %></p>
 <p><%= @artwork.content %></p>
 <p><%= @artwork.artist.name %></p>
+<p><%= @artwork.get_upvotes.size %>
+  Likes
+</p>
+
+<p><%= @artwork.get_downvotes.size %>
+  Dislikes
+</p>
+
+
+<%= link_to 'Like', like_artwork_path(@artwork), method: :get %>
+<%= link_to 'Dislike', dislike_artwork_path(@artwork), method: :get %>
 
 <div id="comment">
   <div class="comment_count"><h2><%= pluralize(@artwork.comments.count, "comment")%></h2></div>

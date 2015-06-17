@@ -40,4 +40,4 @@ gem 'spring',        group: :development
 gem 'simple_form', '~>3.1.0'
 gem 'devise', '~>3.5.1'
 gem 'paperclip', '~>4.2.2'
-
+gem 'acts_as_votable', '~>0.10.0'

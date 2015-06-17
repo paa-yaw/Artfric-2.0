@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   devise_for :artists
   resources :artworks do
+    member do
+      get 'like', to: 'artworks#upvote'
+      get 'dislike', to: 'artworks#downvote'
+    end
     resources :comments
   end
 

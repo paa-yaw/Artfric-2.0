@@ -1,4 +1,5 @@
 class Artwork < ActiveRecord::Base
+  acts_as_votable
   has_many :comments, dependent: :destroy
   belongs_to :artist
   has_attached_file :image, styles:  { medium: "700x500>", small: "350x250>" }

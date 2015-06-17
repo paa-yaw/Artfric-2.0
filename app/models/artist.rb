@@ -4,5 +4,6 @@ class Artist < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :artworks
+  has_many :artworks, dependent: :destroy
+  has_many :comments
 end

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :artists
-  resources :artworks
+  resources :artworks do
+    resources :comments
+  end
 
   root 'artworks#index'
   # The priority is based upon order of creation: first created -> highest priority.

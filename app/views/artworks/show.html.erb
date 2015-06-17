@@ -4,6 +4,19 @@
 <p><%= @artwork.content %></p>
 <p><%= @artwork.artist.name %></p>
 
+<div id="comment">
+  <div class="comment_count"><h2><%= pluralize(@artwork.comments.count, "comment")%></h2></div>
+
+  <% @comments.each do |comment| %>
+  <div class="comment">
+   <div class="username"> <h3><%= comment.artist.name %></h3></div>
+    <div class="content"><%= comment.content %></div>
+  </div>
+      <% end %>
+</div>
+
+<%= render 'comments/form'%>
+
 <%= link_to 'Edit', edit_artwork_path(@artwork) %>
 <%= link_to 'Delete',artwork_path(@artwork), method: :delete,
                                     data: {confirm: 'Are you sure?'}%>

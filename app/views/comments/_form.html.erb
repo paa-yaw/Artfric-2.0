@@ -1,0 +1,9 @@
+<%= form_for ([@artwork, @artwork.comments.build]) do |f| %>
+<h4>
+  <%=f.label :comment %>
+  <%=f.text_area :content %>
+</h4>
+<p>
+  <div class="button"><%= f.submit %></div>
+</p>
+<% end %>

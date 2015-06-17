@@ -6,6 +6,8 @@
 <h2>
   <%= link_to artwork.title, artwork %>
 </h2>
+<h3><%= link_to pluralize(artwork.comments.count, "Comment"), artwork_path(artwork) %></h3>
+
 <% end %>
 
 

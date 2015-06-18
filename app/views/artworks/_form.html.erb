@@ -1,11 +1,20 @@
 <p>
   <%= simple_form_for @artwork do |f| %>
+
     <%= f.input :image %>
-    <%= f.input :title %>
+    <div class="form-group">
+    <%= f.input :title, input_html: {class: "form-control"} %>
+    </div>
     <%= f.input :link %>
-    <%= f.input :content %>
+    <div class="form-group">
+    <%= f.input :content, input_html: {class: "form-control"} %>
+    </div>
 
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
 
-    <% end %>
+<% end %>
+
+
+
+
 </p>

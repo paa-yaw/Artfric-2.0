@@ -18,7 +18,7 @@ class ArtworksController < ApplicationController
     @artwork= current_artist.artworks.build(artwork_params)
 
     if @artwork.save
-      redirect_to @artwork
+      redirect_to @artwork, notice: "Artwork successfully saved!"
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class ArtworksController < ApplicationController
 
   def update
     if @artwork.update(artwork_params)
-      redirect_to @artwork
+      redirect_to @artwork, notice: "Artwork successfully updated!"
     else
       render 'edit'
     end

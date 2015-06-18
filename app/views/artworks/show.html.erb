@@ -2,7 +2,8 @@
 <h1><%= @artwork.title %></h1>
 <p><%= @artwork.link %></p>
 <p><%= @artwork.content %></p>
-<p><%= @artwork.artist.name %></p>
+<p><strong>Submitted by
+  <%= @artwork.artist.name %></strong></p>
 <p><%= @artwork.get_upvotes.size %>
   Likes
 </p>
@@ -21,7 +22,7 @@
   <% @comments.each do |comment| %>
   <div class="comment">
    <div class="username"> <h3><%= comment.artist.name %></h3></div>
-    <div class="content"><%= comment.content %></div>
+    <div class="content"><p><%= comment.content %></p></div>
   </div>
       <% end %>
 </div>
@@ -32,3 +33,4 @@
 <%= link_to 'Delete',artwork_path(@artwork), method: :delete,
                                     data: {confirm: 'Are you sure?'}%>
 <%= link_to 'Home', root_path %>
+<%= link_to 'SignOut', destroy_artist_session_path, method: :delete, data: {confirm: "Do you?"} %>

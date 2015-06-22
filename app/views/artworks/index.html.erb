@@ -1,15 +1,20 @@
-<h1>Artworks on Display!</h1>
+<% if @artworks.blank? %>
+<h1>No artworks posted yet. Click <a href="/artworks/new">HERE</a> to post your artwork</h1>
+<% else %>
+    <h1>Artworks on Display!</h1>
 
-<% @artworks.each do |artwork| %>
-<%= link_to (image_tag(artwork.image.url(:small))), artwork%>
-<h2>
-  <%= link_to artwork.title, artwork %>
-</h2>
-<h3><%= link_to pluralize(artwork.comments.count, "Comment"), artwork_path(artwork) %></h3>
+    <% @artworks.each do |artwork| %>
+        <%= link_to (image_tag(artwork.image.url(:small))), artwork%>
+
+    <h2>
+        <%= link_to artwork.title, artwork %>
+    </h2>
+
+    <h3><%= link_to pluralize(artwork.comments.count, "Comment"), artwork_path(artwork) %></h3>
     <p><%= artwork.get_upvotes.size %>
       Likes
     </p>
-
+<% end %>
 <% end %>
 
 

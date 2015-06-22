@@ -28,16 +28,26 @@ class ArtworksController < ApplicationController
   end
 
   def update
+    if current_artist!=@artwork.artist
+      redirect_to @artwork, notice: "Can't update"
+    elsif current_artist==@artwork.artist
     if @artwork.update(artwork_params)
       redirect_to @artwork, notice: "Artwork successfully updated!"
     else
       render 'edit'
     end
+    end
+    
   end
 
   def destroy
-    @artwork.destroy
-    redirect_to  root_path
+    if current_artist!=@artwork.artist
+      redirect_to @artwork , notice: "Can't Delete"
+    else
+      @artwork.destroy
+      redirect_to  root_path
+    end
+
   end
 
   def upvote

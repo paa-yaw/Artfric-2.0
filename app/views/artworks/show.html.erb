@@ -1,20 +1,50 @@
-<%= image_tag @artwork.image.url(:medium) %>
-<h1><%= @artwork.title %></h1>
-<p><%= @artwork.link %></p>
-<p><%= @artwork.content %></p>
-<p><strong>Submitted by
-  <%= @artwork.artist.fname %></strong></p>
-<p><%= @artwork.get_upvotes.size %>
-  Likes
-</p>
+<div id="artwork_show">
+  <h1>
+    <%= @artwork.title%>
+  </h1>
+  <h3 class="artistname">
+    <%= @artwork.artist.fname %>
+    about
+    <%= time_ago_in_words(@artwork.created_at)%>
+  </h3>
+  <div class="clearfix">
+    <div class="artwork_content1">
+        <%= image_tag @artwork.image.url(:medium) %>
+    </div>
+    <!--<div class="content">-->
+      <!--<%= simple_format(@artwork.content)%>-->
+    <!--</div>-->
+    <div class="artwork_data">
+      <%= link_to 'Visit Link', @artwork.link, class: 'btn btn-primary' %>
+      <%= link_to like_artwork_path(@artwork), method: :get, class: 'data' do %>
+      <i class="fa fa-thumbs-up">
+        <%= pluralize(@artwork.get_upvotes.size, 'Likes')%>
+      </i>
+          <% end %>
+      <%= link_to dislike_artwork_path(@artwork), method: :get, class: 'data' do %>
+          <i class="fa fa-thumbs-down">
+            <%= pluralize(@artwork.get_downvotes.size, 'Dislikes')%>
+          </i>
+          <% end %>
+           <p class="data">
+             <i class="fa fa-comments-o">
+               <%= pluralize(@artwork.comments.count, 'Comment') %>
+             </i>
+           </p>
+      <% if current_artist==@artwork.artist %>
+         <p>
+           <%= link_to 'Edit', edit_artwork_path(@artwork), class: 'btn btn-primary' %><br>
+           <%= link_to 'Delete',artwork_path(@artwork), method: :delete,
+                       data: {confirm: 'Are you sure?'}, class: 'btn btn-primary'%>
+         </p>
+      <% end %>
 
-<p><%= @artwork.get_downvotes.size %>
-  Dislikes
-</p>
+    </div>
 
+  </div>
 
-<%= link_to 'Like', like_artwork_path(@artwork), method: :get %>
-<%= link_to 'Dislike', dislike_artwork_path(@artwork), method: :get %>
+</div>
+
 
 <div id="comment">
   <div class="comment_count"><h2><%= pluralize(@artwork.comments.count, "comment")%></h2></div>
@@ -29,11 +59,5 @@
 
 <%= render 'comments/form'%>
 
-<% if current_artist!=@artwork.artist %>
-<h4></h4>
-<% else %>
-<%= link_to 'Edit', edit_artwork_path(@artwork) %>
-    <%= link_to 'Delete',artwork_path(@artwork), method: :delete,
-                data: {confirm: 'Are you sure?'}%>
-<% end %>
+
 

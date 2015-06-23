@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);*/
 
 
 /*************************
@@ -6,7 +6,7 @@
 **************************/
 
 body {
-  background: #fff;
+  background: linear-gradient(45deg, black, #808080, #000000);
   font-family: 'Open Sans', sans-serif;
   color:#4e4e4e;
   line-height: 22px;
@@ -25,7 +25,7 @@ h6 {
 
 h1{
   font-size: 36px;
-  color:#ec1414;
+  color:#fff;
 }
 
 h2{

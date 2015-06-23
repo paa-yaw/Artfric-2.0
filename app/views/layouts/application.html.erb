@@ -6,12 +6,12 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 </head>
 <body>
-
 <header id="header">
+<!--------------------------------------------header---------------------------------------------------->
   <!--<div class="top-bar">-->
     <!--<div class="container">-->
       <!--<div class="row">-->
@@ -49,6 +49,7 @@
           <span class="icon-bar"></span>
         </button>
         <!--<a class="navbar-brand" href="#"><img src="/assets/art.jpg" alt="logo"></a>-->
+        <a class="navbar-brand" href="/artworks">Artfric</a>
       </div>
 
       <div class="collapse navbar-collapse navbar-right">
@@ -57,8 +58,8 @@
           <li class="active"><%= link_to 'Art Gallery', artworks_path %></li>
           <li><%= link_to 'Post An Artwork', new_artwork_path %></li>
           <li><a href="#">Artists' Profile</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
+          <!--<li><a href="#">About Us</a></li>-->
+          <!--<li><a href="#">Contact</a></li>-->
 
           <li><%= link_to 'Edit Profile', edit_artist_registration_path %></li>
 
@@ -86,6 +87,7 @@
           <% end %>
           <% if current_artist %>
           <li><a href="#">Logged In as <%= current_artist.fname %></a></li>
+          <!--<li><%= link_to (image_tag current_artist.profile_pic.url(:thumb)), root_path %></a></li>-->
           <% end %>
         </ul>
       </div>
@@ -97,23 +99,27 @@
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<%= yield %>
 
-<footer id="footer" class="midnight-blue">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">a Meltwater product</a>. All Rights Reserved.
-      </div>
-      <div class="col-sm-6">
-        <ul class="pull-right">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Faq</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
+<div class="wrapper">
+  <%= yield %>
+</div>
+
+
+<!--<footer id="footer" class="midnight-blue">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-6">-->
+        <!--&copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="">a Meltwater product</a>. All Rights Reserved.-->
+      <!--</div>-->
+      <!--<div class="col-sm-6">-->
+        <!--<ul class="pull-right">-->
+          <!--<li><a href="#">About Us</a></li>-->
+          <!--<li><a href="#">Faq</a></li>-->
+          <!--<li><a href="#">Contact Us</a></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</footer>-->
 </body>
 </html>

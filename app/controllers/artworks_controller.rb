@@ -51,13 +51,23 @@ class ArtworksController < ApplicationController
   end
 
   def upvote
+    if current_artist!=@artwork.artist
     @artwork.upvote_by current_artist
     redirect_to :back
+    else
+      redirect_to :back
+    end
+
   end
 
   def downvote
+    if current_artist!=@artwork.artist
     @artwork.downvote_by current_artist
     redirect_to :back
+    else
+      redirect_to :back
+    end
+
   end
 
   private

@@ -3,6 +3,7 @@
     <%= @artwork.title%>
   </h1>
   <h3 class="artistname">
+    Shared by
     <%= @artwork.artist.fname %>
     about
     <%= time_ago_in_words(@artwork.created_at)%>
@@ -57,7 +58,9 @@
       <% end %>
 </div>
 
+<% if current_artist!=@artwork.artist %>
 <%= render 'comments/form'%>
+<% end %>
 
 
 

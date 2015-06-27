@@ -45,9 +45,8 @@ class ArtworksController < ApplicationController
       redirect_to @artwork , notice: "Can't Delete"
     else
       @artwork.destroy
-      redirect_to  root_path
+      redirect_to  root_path, notice: "Delete Successful!"
     end
-
   end
 
   def upvote
@@ -57,8 +56,9 @@ class ArtworksController < ApplicationController
     else
       redirect_to :back
     end
-
   end
+
+
 
   def downvote
     if current_artist!=@artwork.artist
@@ -67,7 +67,12 @@ class ArtworksController < ApplicationController
     else
       redirect_to :back
     end
+  end
 
+  def profile
+  end
+
+  def about
   end
 
   private

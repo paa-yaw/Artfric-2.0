@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :artists
+  get 'about' => 'artworks#about'
+  get 'artworks/profile'=> 'artworks#profile'
   resources :artworks do
     member do
       get 'like', to: 'artworks#upvote'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+
 
   root 'artworks#index'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -66,4 +69,5 @@ Rails.application.routes.draw do
   #   end
 
   # match ':controller(/:action(/:id)', :via => :get
+  # get ':controller(/:action(/:id))'
 end

@@ -1,6 +1,19 @@
 <p>
   <%= simple_form_for @artwork do |f| %>
 
+      <% if @artwork.errors.any? %>
+          <div id="errors">
+               <h2><%= pluralize(@artwork.errors.count, "error")%> prevented this
+               artwork from saving!
+               </h2>
+            <ul>
+              <% @artwork.errors.full_messages.each do |msg| %>
+              <h2> <%= msg %></h2>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
     <%= f.input :image %>
     <div class="form-group">
     <%= f.input :title, input_html: {class: "form-control"} %>

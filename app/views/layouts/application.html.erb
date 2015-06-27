@@ -57,14 +57,14 @@
           <% if artist_signed_in? %>
           <li class="active"><%= link_to 'Art Gallery', artworks_path %></li>
           <li><%= link_to 'Post An Artwork', new_artwork_path %></li>
-          <li><a href="#">Artists' Profile</a></li>
+          <li><%= link_to "Artist's Profile", artworks_profile_path(@artwork) %></li>
           <!--<li><a href="#">About Us</a></li>-->
           <!--<li><a href="#">Contact</a></li>-->
 
           <li><%= link_to 'Edit Profile', edit_artist_registration_path %></li>
 
            <li><%=link_to 'LogOut', destroy_artist_session_path, method: :delete,
-                                    data: {confirm: 'Are You Sure?'} %></li>
+                                    data: {confirm: 'NOTE! You are logging out!'} %></li>
           <% else %>
           <li class="active"><%= link_to 'Art Gallery', artworks_path %></li>
           <li><a href="#">Artists' Profile</a></li>
@@ -98,7 +98,7 @@
 
 
 <p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<!--<p class="alert"><%= alert %></p>-->
 
 <div class="wrapper">
   <%= yield %>

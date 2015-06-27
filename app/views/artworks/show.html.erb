@@ -7,6 +7,7 @@
     <%= @artwork.artist.fname %>
     about
     <%= time_ago_in_words(@artwork.created_at)%>
+    ago
   </h3>
   <div class="clearfix">
     <div class="artwork_content1">
@@ -19,12 +20,12 @@
       <%= link_to 'Visit Link', @artwork.link, class: 'btn btn-primary' %>
       <%= link_to like_artwork_path(@artwork), method: :get, class: 'data' do %>
       <i class="fa fa-thumbs-up">
-        <%= pluralize(@artwork.get_upvotes.size, 'Likes')%>
+        <%= pluralize(@artwork.get_upvotes.size, 'Like')%>
       </i>
           <% end %>
       <%= link_to dislike_artwork_path(@artwork), method: :get, class: 'data' do %>
           <i class="fa fa-thumbs-down">
-            <%= pluralize(@artwork.get_downvotes.size, 'Dislikes')%>
+            <%= pluralize(@artwork.get_downvotes.size, 'Dislike')%>
           </i>
           <% end %>
            <p class="data">

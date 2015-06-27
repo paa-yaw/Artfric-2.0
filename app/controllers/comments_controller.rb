@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to artwork_path(@artwork)
     else
-      render 'new'
+      redirect_to @artwork, alert: "Can't leave comment blank!"
     end
   end
 
